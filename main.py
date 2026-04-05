@@ -511,3 +511,5 @@ def adjust_learning_rate(optimizer, epoch, k):
 
 if __name__ == '__main__':
     main()
+# python main.py --epochs <轮数> --batch-size 32 data/catalysis 进行训练
+# python predict.py model_best.pth.tar data/catalysis/5 --batch-size 32 使用测试案例 predict.py
