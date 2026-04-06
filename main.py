@@ -511,5 +511,14 @@ def adjust_learning_rate(optimizer, epoch, k):
 
 if __name__ == '__main__':
     main()
+
 # python main.py --epochs <轮数> --batch-size 32 data/catalysis 进行训练
 # python predict.py model_best.pth.tar data/catalysis/5 --batch-size 32 使用测试案例 predict.py
+# 预测目标 典型 MAE 范围
+# 形成能   0.02 – 0.05 eV/atom
+# 带隙    0.2 – 0.4 eVx
+# 吸附能   0.1 – 0.3 eV
+# 总能量   0.01 – 0.05 eV/atom (归一化后)
+
+# 657样本 MAE 0.073
+# 5验证集 MAE 0.150
