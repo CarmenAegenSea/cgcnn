@@ -1,0 +1,6 @@
+﻿=> loading model params 'model_best.pth.tar'
+=> loaded model params 'model_best.pth.tar'
+=> loading model 'model_best.pth.tar'
+=> loaded model 'model_best.pth.tar' (epoch 115, validation 0.05321580171585083)
+Test: [0/4]	Time 0.452 (0.452)	Loss 0.0044 (0.0044)	MAE 0.038 (0.038)
+ ** MAE 0.042

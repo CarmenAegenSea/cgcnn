@@ -49,7 +49,6 @@ spinel_systems = [
     "Co-Fe-O", "Ni-Fe-O", "Mn-Co-O", "Cu-Fe-O",
     "Zn-Fe-O", "Mg-Fe-O", "Ni-Mn-O"
 ]
-
 for chemsys in spinel_systems:
     search_tasks.append({
         "name": f"spinel_{chemsys}",
