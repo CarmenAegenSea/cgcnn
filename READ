@@ -1,0 +1,6 @@
+model_best.pth.tar: stores the CGCNN model with the best validation accuracy.
+checkpoint.pth.tar: stores the CGCNN model at the last epoch.
+test_results.csv: stores the ID, target value, and predicted value for each crystal in test set.
+
+python main.py --train-size  --val-size  --test-size  data/catalysis <training> <validation> <test data>
+python predict.py pre-trained.pth.tar root_dir <date file> <model> <predict file>

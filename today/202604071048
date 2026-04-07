@@ -1,0 +1,9 @@
+MAE 0.073
+MAE 0.058
+MAE 0.055
+MAE 0.057
+MAE 0.063
+python run_kfold.py
+
+均值 0.0612
+标准差 0.0068
