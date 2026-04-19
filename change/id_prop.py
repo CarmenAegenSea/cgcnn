@@ -6,10 +6,10 @@ import shutil
 # 遍历data/catalysis文件夹中的所有文件夹，生成id_prop.csv文件
 #==========================================================
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+SCRIPT_DIR = 'C:\\Users\\22616\\PycharmProjects\\cgcnn\\cgcnn\\data\\tmc_data\\cif'
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 
-MASTER_CSV = os.path.join(PROJECT_ROOT, "data", "catalysis", "id_prop.csv")
+MASTER_CSV = os.path.join(PROJECT_ROOT, "data", "catalysis", "../data/tmc_data/cif/id_prop.csv")
 CV_BASE_DIR = os.path.join(PROJECT_ROOT, "data", "catalysis")
 ATOM_INIT_SRC = os.path.join(PROJECT_ROOT, "data", "catalysis", "atom_init.json")
 
@@ -49,7 +49,7 @@ for i in range(1, 6):
 
     # 生成 id_prop.csv
     fold_df = pd.DataFrame(fold_data)
-    fold_csv_path = os.path.join(fold_dir, "id_prop.csv")
+    fold_csv_path = os.path.join(fold_dir, "../data/tmc_data/cif/id_prop.csv")
     fold_df.to_csv(fold_csv_path, index=False, header=False)
 
     # 复制 atom_init.json

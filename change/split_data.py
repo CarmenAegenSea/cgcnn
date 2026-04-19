@@ -12,14 +12,11 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 # 项目根目录：向上两级，即 C:\Users\22616\PycharmProjects\cgcnn
 PROJECT_ROOT = os.path.dirname(os.path.dirname(SCRIPT_DIR))
 
-# yuan 文件夹的实际位置：项目根目录/cgcnn/data/yuan
 YUAN_DIR = os.path.join(PROJECT_ROOT, "cgcnn", "data", "yuan")
-MASTER_CSV = os.path.join(YUAN_DIR, "id_prop.csv")          # 总表也在 yuan 内
+MASTER_CSV = os.path.join(YUAN_DIR, "../data/tmc_data/cif/id_prop.csv")
 
-# 目标根目录：cgcnn/data/catalysis（存放 1~5 子文件夹）
-DATA_CATALYSIS = os.path.join(PROJECT_ROOT, "cgcnn", "data", "catalysis")
+DATA_CATALYSIS = os.path.join(PROJECT_ROOT, "cgcnn", "data", "catalysis_last")
 
-# atom_init.json 的位置（从 pre-trained 目录复制到 catalysis 目录）
 ATOM_INIT_SRC = os.path.join(PROJECT_ROOT, "pre-trained", "atom_init.json")
 
 # 输出路径信息供确认
@@ -27,10 +24,9 @@ print(f"脚本目录: {SCRIPT_DIR}")
 print(f"项目根目录: {PROJECT_ROOT}")
 print(f"yuan 文件夹: {YUAN_DIR}")
 print(f"总表文件: {MASTER_CSV}")
-print(f"目标 catalysis 目录: {DATA_CATALYSIS}")
+print(f"目标 catalysis_last 目录: {DATA_CATALYSIS}")
 print(f"原子特征文件源路径: {ATOM_INIT_SRC}")
 
-# ===== 检查必要文件 =====
 if not os.path.exists(YUAN_DIR):
     raise FileNotFoundError(f"找不到 yuan 文件夹: {YUAN_DIR}")
 if not os.path.exists(MASTER_CSV):
@@ -86,7 +82,7 @@ for i in range(1, 6):
         fold_data.append([cid, data_map[cid]])
 
     # 写入 id_prop.csv（无表头）
-    fold_csv = os.path.join(fold_dir, "id_prop.csv")
+    fold_csv = os.path.join(fold_dir, "../data/tmc_data/cif/id_prop.csv")
     pd.DataFrame(fold_data).to_csv(fold_csv, index=False, header=False)
 
     # 复制 atom_init.json（如果源文件存在）

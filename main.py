@@ -406,7 +406,7 @@ def validate(val_loader, model, criterion, normalizer, test=False):
     if test:
         star_label = '**'
         import csv
-        with open('test_results.csv', 'w') as f:
+        with open('data/test_results.csv', 'w') as f:
             writer = csv.writer(f)
             for cif_id, target, pred in zip(test_cif_ids, test_targets,
                                             test_preds):
@@ -512,8 +512,8 @@ def adjust_learning_rate(optimizer, epoch, k):
 if __name__ == '__main__':
     main()
 
-# python main.py --epochs <轮数> --batch-size 32 data/catalysis 进行训练
-# python predict.py model_best.pth.tar data/catalysis/5 --batch-size 32 使用测试案例 predict.py
+# python main.py --epochs <轮数> --batch-size 32 data/catalysis_last 进行训练
+# python predict.py model_best.pth.tar data/catalysis_last/5 --batch-size 32 使用测试案例 predict.py
 # 预测目标 典型 MAE 范围
 # 形成能   0.02 – 0.05 eV/atom
 # 带隙    0.2 – 0.4 eVx
