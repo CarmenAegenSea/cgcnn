@@ -20,16 +20,15 @@ def main():
     checkpoint = torch.load(args.modelpath, map_location='cpu')
     model_args = checkpoint.get('model_args') or checkpoint.get('args')
 
-    # 尝试从 checkpoint 读取标准化参数
+    #从 checkpoint 读取标准化参数
     normalizer = checkpoint.get('normalizer', {})
     mean = normalizer.get('mean')
     std = normalizer.get('std')
 
-    # 如果没有，则使用手动值（请替换为你的训练集实际均值和标准差）
     if mean is None or std is None:
         print("Checkpoint 中未找到 normalizer，使用手动指定值。")
-        MANUAL_MEAN = -2.0411   # 请替换为实际值！
-        MANUAL_STD = 0.7199    # 请替换为实际值！
+        MANUAL_MEAN = 1.5972 #替换为获取的mean
+        MANUAL_STD = 1.2327   #替换为获取的std
         mean = MANUAL_MEAN
         std = MANUAL_STD
     else:
@@ -68,7 +67,7 @@ def main():
             predictions.extend(output.cpu().numpy().flatten().tolist())
             cif_ids.extend(batch_ids)
 
-    # 逆标准化
+    #逆标准化
     predictions = [p * std + mean for p in predictions]
 
     output_file = 'test_results_final.csv'
