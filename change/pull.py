@@ -59,7 +59,7 @@ def fetch_materials_by_elements(mpr: MPRester, elements_list: List[List[str]], d
                         "cbm", "vbm", "is_stable", "symmetry", "structure"]
             )
             for doc in docs:
-                if len(materials) >= MAX_MATERIALS // # 限制单通道数量，避免失衡
+                if len(materials) >= MAX_MATERIALS // 2: # 限制单通道数量，避免失衡
                     break
                 materials.append(process_doc(doc))
                 time.sleep(REQUEST_DELAY)

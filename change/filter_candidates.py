@@ -1,5 +1,7 @@
 import pandas as pd
-
+"""
+筛选结果中符合条件的项
+"""
 PRED_FILE = 'test_results_final.csv'
 ATTR_FILE = 'C:\\Users\\22616\\PycharmProjects\\cgcnn\\cgcnn\\data\\tmc_data\\tmc_all_materials.csv'   # 请确认实际路径
 OUTPUT_FILE = 'final_candidates.csv'

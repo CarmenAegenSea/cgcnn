@@ -513,14 +513,14 @@ def adjust_learning_rate(optimizer, epoch, k):
 if __name__ == '__main__':
     main()
 
-# python main.py --epochs <轮数> --batch-size 32 data/catalysis_last 进行训练
-# python predict.py model_best.pth.tar data/catalysis_last/5 --batch-size 32 使用测试案例 predict.py
-# 预测目标 典型 MAE 范围
-# 形成能   0.02 – 0.05 eV/atom
-# 带隙    0.2 – 0.4 eVx
-# 吸附能   0.1 – 0.3 eV
-# 总能量   0.01 – 0.05 eV/atom (归一化后)
+# python change/pull.py
 
-# 657样本 MAE 0.073
-# 5验证集 MAE 0.150
-# 823样本 MAE 0.059
+# python cgcnn/main.py --train-ratio 0.8 --val-ratio 0.1 --test-ratio 0.1 --epochs 200 --batch-size 32 --lr 0.01 "C:/Users/22616/PycharmProjects/cgcnn/cgcnn/data/catalysis/cif"
+
+# python -c "import pandas as pd; df = pd.read_csv('C:/Users/22616/PycharmProjects/cgcnn/cgcnn/data/catalysis/cif/id_prop.csv', header=None); bg = df.iloc[:, 1].values; print(f'mean = {bg.mean():.4f}, std = {bg.std():.4f}')"
+
+# python cgcnn/predict.py ./model_best.pth.tar "C:/Users/2266/PycharmProjects/cgcnn/cgcnn/data/tmc_data/cif"
+
+# python cgcnn/change/filter_candidates.py
+
+# python cgcnn/change/parityPlot.py
